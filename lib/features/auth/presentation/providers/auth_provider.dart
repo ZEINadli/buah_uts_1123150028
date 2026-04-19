@@ -1,3 +1,6 @@
+import 'package:buah_uts_1123150028/core/constants/app_constants.dart';
+import 'package:buah_uts_1123150028/core/services/dio_client.dart';
+import 'package:buah_uts_1123150028/core/services/secure_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -79,6 +82,29 @@ class AuthProvider extends ChangeNotifier {
     // STEP 3: Kirim Firebase token ke backend → dapat JWT
     return await _verifyTokenToBackend();
   }
+
+  Future<bool> _verifyTokenToBackend() async {
+    // Ambil Firebase ID Token (expired tiap 1 jam)
+    final firebaseToken = await _firebaseUser?.getIdToken();
+
+    // POST ke backend — DioClient interceptor sudah handle logging
+    final response = await DioClient.instance.post(
+      AppConstants.verifyToken,
+      data: {'firebase_token': firebaseToken},
+    );
+
+    // Backend return JWT milik sistem kita
+    final data = response.data['data'] as Map<String, dynamic>;
+    final backendToken = data['access_token'] as String;
+
+    // Simpan aman di device (encrypted)
+    await SecureStorage.saveToken(backendToken);
+
+    _status = AuthStatus.authenticated;
+    notifyListeners();
+    return true;
+  }
+
 
   
 }
