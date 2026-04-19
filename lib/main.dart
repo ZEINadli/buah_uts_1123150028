@@ -1,6 +1,9 @@
+import 'package:buah_uts_1123150028/features/auth/presentation/providers/auth_provider.dart';
+import 'package:buah_uts_1123150028/features/dashboard/presentation/providers/product_provider.dart';
 import 'package:buah_uts_1123150028/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +14,14 @@ void main() async {
   );
 
 
-  runApp(const MyApp());
+  MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => ProductProvider()),
+      ],
+      child: const MyApp(),
+    );
+
 }
 
 class MyApp extends StatelessWidget {
