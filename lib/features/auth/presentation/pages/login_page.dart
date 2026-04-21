@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const SizedBox(height: 32),
                   const AuthHeader(
-                    icon: Icons.lock_open_outlined,
+                    icon: Icons.account_circle_rounded,
                     title: 'Selamat Datang',
                     subtitle: 'Masuk ke akun Anda untuk melanjutkan',
                   ),
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     hint: 'Masukkan password',
                     controller: _passCtrl,
                     obscureText: !_showPass,
-                    prefixIcon: const Icon(Icons.lock_outline),
+                    prefixIcon: const Icon(Icons.lock_outline_rounded),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _showPass ? Icons.visibility_off : Icons.visibility,
