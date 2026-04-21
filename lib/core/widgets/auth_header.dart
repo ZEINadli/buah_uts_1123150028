@@ -1,3 +1,4 @@
+import 'package:buah_uts_1123150028/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AuthHeader extends StatelessWidget {
@@ -21,13 +22,13 @@ class AuthHeader extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: (iconColor ?? const Color(0xFF1565C0)).withOpacity(0.1),
+            color: (iconColor ?? AppColors.primary).withOpacity(0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(
             icon,
             size: 48,
-            color: iconColor ?? const Color(0xFF1565C0),
+            color: iconColor ?? AppColors.primary,
           ),
         ),
         const SizedBox(height: 20),
