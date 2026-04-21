@@ -1,13 +1,10 @@
-import 'dart:async';
-
+import 'package:buah_uts_1123150028/core/constants/app_colors.dart';
 import 'package:buah_uts_1123150028/core/routes/app_router.dart';
 import 'package:buah_uts_1123150028/core/widgets/auth_header.dart';
 import 'package:buah_uts_1123150028/core/widgets/custom_button.dart';
 import 'package:buah_uts_1123150028/features/auth/presentation/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-
 
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({super.key});
@@ -86,7 +83,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                 title: 'Verifikasi Email Kamu',
                 subtitle:
                     'Kami sudah mengirim link verifikasi ke email di bawah ini.',
-                iconColor: Colors.orange,
+                iconColor: AppColors.primary,
               ),
               const SizedBox(height: 24),
 
