@@ -1,3 +1,4 @@
+import 'package:buah_uts_1123150028/core/constants/app_colors.dart';
 import 'package:buah_uts_1123150028/core/routes/app_router.dart';
 import 'package:buah_uts_1123150028/features/auth/presentation/providers/auth_provider.dart';
 import 'package:buah_uts_1123150028/features/cart/presentation/pages/cart_page.dart';
@@ -153,7 +154,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           Text(
                             'Rp ${p.price.toStringAsFixed(0)}',
                             style: const TextStyle(
-                              color: Color(0xFF1565C0),
+                              color: AppColors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -164,14 +165,14 @@ class _DashboardPageState extends State<DashboardPage> {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.blue.shade50,
+                              color: AppColors.primary.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Text(
-                              p.category,
-                              style: const TextStyle(
+                            child: const Text(
+                              'Buah Segar',
+                              style: TextStyle(
                                 fontSize: 11,
-                                color: Color(0xFF1565C0),
+                                color: AppColors.primary,
                               ),
                             ),
                           ),
