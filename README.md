@@ -1,16 +1,10 @@
-# buah_uts_1123150028
+# Toko Buah
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Keterangan       | Detail |
+|------------------|--------|
+| Nama             | Ahmad Zein Adli Wibawa |
+| NIM              | 1123150028 |
+| Kelas            | TI 23 SE 1 |
+| Program Studi    | Teknik Informatika |
+| Konsentrasi      | Software Engineer |
+| Link YouTube     | [Klik di sini](https://youtu.be/6OL085kZ0c0?si=16VuwIJMf5iA_1c8) |
