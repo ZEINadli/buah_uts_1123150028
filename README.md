@@ -120,5 +120,15 @@ lib/
 
 ## Screenshot Aplikasi
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/565df916-89f2-471d-b7c5-08b7128bb89e" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/9343bc3b-edee-4f93-8a75-95ca5b3c9931" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/082ce4a7-3370-4a96-a601-c6257bb16278" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/f5283a1d-bb89-4d58-974d-34e0c27c4116" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/95f11ea6-1247-46cd-8295-cee3135f1c09" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/e60b143c-bbf8-494b-8d44-f7041727b228" width="250" height="500" />
+  <img src="https://github.com/user-attachments/assets/1be307a1-78ce-407d-976b-1b14f7e652ea" width="250" height="500" />
+</div>
+
 
 
