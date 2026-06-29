@@ -102,7 +102,7 @@ class _DashboardPageState extends State<DashboardPage> {
             padding: const EdgeInsets.all(16),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 0.75,
+              childAspectRatio: 0.65,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
             ),
@@ -123,11 +123,11 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                       child: Image.network(
                         p.imageUrl,
-                        height: 120,
+                        height: 100,
                         width: double.infinity,
                         fit: BoxFit.cover,
                         errorBuilder: (_, __, ___) => Container(
-                          height: 120,
+                          height: 100,
                           color: Colors.grey.shade200,
                           child: const Icon(
                             Icons.image_not_supported,
@@ -136,72 +136,79 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            p.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  p.name,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Rp ${p.price.toStringAsFixed(0)}',
+                                  style: const TextStyle(
+                                    color: AppColors.primary,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 2,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primary.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: const Text(
+                                    'Buah Segar',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            'Rp ${p.price.toStringAsFixed(0)}',
-                            style: const TextStyle(
-                              color: AppColors.primary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 2,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.primary.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'Buah Segar',
-                              style: TextStyle(
-                                fontSize: 11,
-                                color: AppColors.primary,
+                            ElevatedButton(
+                              onPressed: () {
+                                context.read<CartProvider>().addItem(
+                                  p.id.toString(),
+                                  p.name,
+                                  p.price,
+                                  imageUrl: p.imageUrl,
+                                );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('${p.name} ditambahkan ke keranjang'),
+                                    duration: const Duration(seconds: 2),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(vertical: 8),
+                                minimumSize: const Size(double.infinity, 36),
+                              ),
+                              child: const Text(
+                                'Tambah ke Keranjang',
+                                style: TextStyle(fontSize: 12),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 6),
-                          ElevatedButton(
-                            onPressed: () {
-                              context.read<CartProvider>().addItem(
-                                p.id.toString(),
-                                p.name,
-                                p.price,
-                                imageUrl: p.imageUrl,
-                              );
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('${p.name} ditambahkan ke keranjang'),
-                                  duration: const Duration(seconds: 2),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 8),
-                              minimumSize: const Size(double.infinity, 36),
-                            ),
-                            child: const Text(
-                              'Tambah ke Keranjang',
-                              style: TextStyle(fontSize: 12),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
